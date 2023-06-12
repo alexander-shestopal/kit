@@ -29,9 +29,5 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::middleware(['api','auth:sanctum'])->group(function () {
     Route::get('/courses', [CourseController::class, 'getCourses']);
+    Route::get('/course/{send_currency}/{recive_currency}', [CourseController::class, 'getTwoCourses']);
 });
-// Route::get('/courses', [CourseController::class, 'getCourses']);
-Route::get('/course/{send_currency}/{recive_currency}', [CourseController::class, 'getTwoCourses']);
-// Route::middleware('auth:sanctum')->group(function () {
-//     Route::get('/me', 'AuthController@me');
-// });

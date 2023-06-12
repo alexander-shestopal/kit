@@ -4,9 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
 use App\Models\Course;
-use DateTime;
 use Illuminate\Http\Request;
 
 set_time_limit(0);
