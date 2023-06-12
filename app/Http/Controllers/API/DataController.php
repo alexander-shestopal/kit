@@ -23,6 +23,7 @@ class DataController extends Controller
     public function getData()
     {      
         $collection = $this->fileProcessing()->sortBy(['id_send_currency', 'id_recive_currency'])->values();
+        return $collection;
         $this->saveDB($collection);
 
         return response()->json('File downloaded sacsessfully');
@@ -93,7 +94,7 @@ class DataController extends Controller
         foreach ($grouped as $item) {
             foreach ($item as $value) {
                 if (count($value) !== 1) {
-                    if ($value[0]['rate_send'] !== 1) {
+                    if ($value[0]['rate_send'] != 1) {
                         $min_value =  $value->min('rate_send');
                         $collection->push($value->where('rate_send', $min_value)->values()[0]);
                     } else {
